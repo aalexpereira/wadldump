@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+curl -ks "$1" |sed 's/=/\n/g' |egrep "http://|https://" |egrep -v "w3.org|java.net" |awk -F '"' '{print $2}' |sort -u
+
